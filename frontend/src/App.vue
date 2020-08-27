@@ -1,40 +1,47 @@
 <template>
   <div class="">
     <div class="slogan text-center">
-      <h1>NameGator</h1>
+      <h1 class="text-3xl">NameGator</h1>
       <br />
-      <h6 class="text-secondary">Gerador de nomes utilizando Vue.js, GraphQL e Node</h6>
+      <h6 class="text-sm text-gray-500">Gerador de nomes utilizando Vue.js, GraphQL e Node</h6>
     </div>
     <div class="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-md">
-            <h5>Prefixos <span class="badge badge-info">0</span></h5>
-            <div class="card">
+      <div class="container mx-auto">
+        <div class="grid md:grid-cols-2 sm:grid-cols-1 p-3 gap-4">
+          <div>
+            <h5>Prefixos <span class="bg-green-600 rounded-md text-white px-1">{{ state.prefixes.length }}</span></h5>
+            <div class="bg-white rounded-lg p-3 shadow m-1">
               <div class="card-body">
-                <ul class="list-group">
-                  <li class="list-group-item" v-for="prefix in state.prefixes" :key="prefix">
+                <ul class="divide-y divide-gray-400">
+                  <li class="py-1" v-for="prefix in state.prefixes" :key="prefix">
                     {{ prefix }}
                   </li>
                 </ul>
                 <br />
-                <input class="form-control" type="text" placeholder="Digite o Prefixo">
+                <input class="w-full p-2 border-2 rounded-md border-gray-400" type="text" placeholder="Digite o Prefixo">
               </div>
             </div>
           </div>
-          <div class="col-md">
-            <h5>Sufixos <span class="badge badge-info">0</span></h5>
-            <div class="card">
-              <div class="card-body">
-                <ul class="list-group">
-                  <li class="list-group-item" v-for="sufix in state.sufixes" :key="sufix">
-                    {{ sufix }}
-                  </li>
-                </ul>
-                <br />
-                <input class="form-control" type="text" placeholder="Digite o Sufixo">
-              </div>
+          <div>
+            <h5>Sufixos <span class="bg-green-600 rounded-md text-white px-1">{{ state.sufixes.length }}</span></h5>
+            <div class="bg-white rounded-lg p-3 shadow m-1">
+              <ul class="divide-y divide-gray-400">
+                <li class="py-1" v-for="sufix in state.sufixes" :key="sufix">
+                  {{ sufix }}
+                </li>
+              </ul>
+              <br />
+              <input class="w-full p-2 border-2 rounded-md border-gray-400" type="text" placeholder="Digite o Sufixo">
             </div>
+          </div>
+        </div> 
+        <div class="grid md:grid-cols-1 sm:grid-cols-1 p-3 gap-4">
+          <div class="bg-white rounded-lg p-3 shadow m-1">
+            <ul class="divide-y divide-gray-400">
+              <li class="py-1" v-for="domain in state.domains" :key="domain">
+                {{ domain }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -43,7 +50,6 @@
 </template>
 
 <script lang="ts">
-import 'bootstrap/dist/css/bootstrap.css'
 import 'font-awesome/css/font-awesome.css'
 import { reactive } from 'vue'
 
@@ -52,7 +58,8 @@ export default {
   setup() {
     const state = reactive({
       prefixes: ['Air', 'Jet', 'Flight'],
-      sufixes: ['Hub', 'Station', 'Mart']
+      sufixes: ['Hub', 'Station', 'Mart'],
+      domains: ['AirHub', 'AirStation', 'AirMart', 'JetHub', 'JetStation', 'JetMart', 'FlightHub', 'FlightStation', 'FlightMart']
     })
 
     return { state }
@@ -68,6 +75,7 @@ export default {
 
 .main {
   background-color: #f1f1f1;
+  height: 100vh;
   padding: 30px;
   padding-top: 30px;
   padding-bottom: 30px;

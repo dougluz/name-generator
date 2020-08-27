@@ -1,12 +1,11 @@
 {
-  "name": "vue-graphqh-name-generator",
+  "name": "vue-graphql-name-generator",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "bootstrap": "^4.5.2",
     "font-awesome": "^4.7.0",
     "vue": "^3.0.0-rc.1"
   },
