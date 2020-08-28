@@ -18,6 +18,12 @@
                   </li>
                 </ul>
                 <br />
+                <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                  <div class="flex -mr-px">
+                    <input type="text" class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border h-10 border-grey-light rounded rounded-l-none px-3 relative focus:border-blue focus:shadow" placeholder="Username">
+                  </div>	
+                  <span class="flex items-center leading-normal bg-grey-lighter rounded rounded-r-none border border-r-0 border-grey-light px-3 whitespace-no-wrap text-grey-dark text-sm">@</span>
+                </div>	
                 <input class="w-full p-2 border-2 rounded-md border-gray-400" type="text" placeholder="Digite o Prefixo">
               </div>
             </div>
@@ -36,12 +42,15 @@
           </div>
         </div> 
         <div class="grid md:grid-cols-1 sm:grid-cols-1 p-3 gap-4">
-          <div class="bg-white rounded-lg p-3 shadow m-1">
-            <ul class="divide-y divide-gray-400">
-              <li class="py-1" v-for="domain in state.domains" :key="domain">
-                {{ domain }}
-              </li>
-            </ul>
+          <div>
+            <h5>Dominios <span class="bg-green-600 rounded-md text-white px-1">{{ state.domains.length }}</span></h5>
+            <div class="bg-white rounded-lg p-3 shadow m-1">
+              <ul class="divide-y divide-gray-400">
+                <li class="py-1" v-for="domain in state.domains" :key="domain">
+                  {{ domain }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
