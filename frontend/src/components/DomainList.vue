@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import 'font-awesome/css/font-awesome.css'
-import { Domain } from '../@types/Domains'
+import { Domain } from '../@types/domains'
 import { reactive, toRef, onMounted, computed } from 'vue'
 import AppItemList from './AppItemList.vue'
 
